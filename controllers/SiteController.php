@@ -35,15 +35,4 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
-
-    public function actionProductos()
-    {
-        return $this->render('productos');
-    }
-
-    public function actionAlmacenes()
-    {
-        return $this->render('almacenes');
-    }
-
 }

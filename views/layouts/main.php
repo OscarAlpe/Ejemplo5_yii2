@@ -39,8 +39,8 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Productos', 'url' => ['/site/productos']],
-            ['label' => 'Almacenes', 'url' => ['/site/almacenes']],
+            ['label' => 'Productos', 'url' => ['/productos']],
+            ['label' => 'Almacenes', 'url' => ['/almacenes']],
         ],
     ]);
     NavBar::end();
