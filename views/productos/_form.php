@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use yii\jui\DatePicker;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Productos */
@@ -22,14 +22,21 @@ use yii\jui\DatePicker;
     <?= $form->field($model, 'almacen')->dropDownList($list,
              ['prompt'=>'Selecciona un almacén...']) ?>
 
-    <label class="control-label">Fecha</label>
-    <?= DatePicker::widget([
-        'model' => $model,
-        'attribute' => 'fecha',
-        'language' => 'es',
-        'dateFormat' => 'php:d/m/Y',
-    ]) ?>
-
+    <div class="form-group">
+        <label class="control-label">Fecha</label>
+        <?= DatePicker::widget([
+            'model' => $model,
+            'attribute' => 'fecha',
+            'language' => 'es',
+            'options' => ['placeholder' => 'Introduce fecha'],
+            'pluginOptions' => [
+                'todayHighlight' => true,
+                'todayBtn' => true,
+                'autoclose'=>true,
+                'format' => 'dd/mm/yyyy',
+            ]
+        ]) ?>
+    </div>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
