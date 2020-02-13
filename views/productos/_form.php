@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use yii\jui\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Productos */
@@ -16,9 +18,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'foto')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'almacen')->textInput() ?>
+    <?php $list = ArrayHelper::map(app\models\Almacenes::find()->all(),'id','nombre'); ?>
+    <?= $form->field($model, 'almacen')->dropDownList($list,
+             ['prompt'=>'Selecciona un almacén...']) ?>
 
-    <?= $form->field($model, 'fecha')->textInput() ?>
+    <label class="control-label">Fecha</label>
+    <?= DatePicker::widget([
+        'model' => $model,
+        'attribute' => 'fecha',
+        'language' => 'es',
+        'dateFormat' => 'php:d/m/Y',
+    ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

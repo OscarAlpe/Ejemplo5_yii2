@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `ejemplo5_yii2`
 --
-CREATE DATABASE IF NOT EXISTS `ejemplo5_yii2` DEFAULT CHARACTER SET latin1 COLLATE latin1_spanish_ci;
-USE `ejemplo5_yii2`;
+CREATE DATABASE IF NOT EXISTS `ejemplo5_yii2_poo` DEFAULT CHARACTER SET latin1 COLLATE latin1_spanish_ci;
+USE `ejemplo5_yii2_poo`;
 
 -- --------------------------------------------------------
 
@@ -63,8 +63,8 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `foto`, `almacen`, `fecha`) VALUES
-(1, 'Producto 1', 'C:\\xampp\\htdocs\\oscar.megia.yii\\ejemplo3_yii\\web\\imgs', 1, '2019-10-01'),
-(2, 'Producto 2', 'C:\\xampp\\htdocs\\oscar.megia.yii\\ejemplo3_yii\\web\\imgs', 2, '2019-08-01');
+(1, 'Producto 1', 'C:\\xampp\\htdocs\\oscar.megia.yii\\ejemplo3_yii\\web\\imgs\\fort_awesome.jpg', 1, '2019-10-01'),
+(2, 'Producto 2', 'C:\\xampp\\htdocs\\oscar.megia.yii\\ejemplo3_yii\\web\\imgs\\fort_awesome.jpg', 2, '2019-08-01');
 
 --
 -- Índices para tablas volcadas

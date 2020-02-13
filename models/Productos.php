@@ -62,4 +62,19 @@ class Productos extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Almacenes::className(), ['id' => 'almacen']);
     }
+    
+    public function beforeSave($insert) {
+        parent::beforeSave($insert);
+        
+        // Para cambiar el formato de la fecha antes de grabar en la BBDD
+        $this->fecha = \DateTime::createFromFormat("d/m/Y", $this->fecha)->format("Y/m/d");
+        
+        return true;
+    }
+    
+    public function afterFind() {
+        parent::afterFind();
+        
+        $this->fecha = Yii::$app->formatter->asDate($this->fecha, "php:d/m/Y");
+    }
 }
