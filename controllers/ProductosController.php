@@ -65,8 +65,10 @@ class ProductosController extends Controller
     public function actionCreate()
     {
         $model = new Productos();
+        
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

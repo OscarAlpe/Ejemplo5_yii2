@@ -53,7 +53,7 @@ INSERT INTO `almacenes` (`id`, `nombre`, `direccion`) VALUES
 CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
-  `foto` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
+  `foto` varchar(255) COLLATE latin1_spanish_ci,
   `almacen` int(11) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;

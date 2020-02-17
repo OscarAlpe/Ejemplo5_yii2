@@ -16,7 +16,7 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'foto')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'foto')->fileInput() ?>
 
     <?php $list = ArrayHelper::map(app\models\Almacenes::find()->all(),'id','nombre'); ?>
     <?= $form->field($model, 'almacen')->dropDownList($list,
