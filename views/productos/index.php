@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use app\models\Almacenes;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -22,44 +21,31 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'nombre',
             [ 'attribute' => 'foto',
-              'format'=>'html',
+              'format'=>'raw',
               'label'=>'image',
+              'contentOptions' =>['style'=>'text-align:center'],
               'value'=>function($data) {
-                        return Html::img(yii\helpers\Url::base('http') . '/imgs/' . $data['foto'],
-                                ['width' => '80px',
-                                'height' => '80px']);
+                        return Html::img('@web//imgs/' . $data->foto,
+                                ['width' => '100px']);
                        },
             ],
-            [
-                'attribute'=>'almacen',
-                'headerOptions' => ['style' => 'width:30%'],
-                'format' => 'html',
-                'value' => function ($data) {
-                    $output = '';
-                    $output .= $data->almacen . "<br />";
-                    $output .= Almacenes::findOne($data->almacen)->toArray()["nombre"] . "<br />";
-                    $output .= Almacenes::findOne($data->almacen)->toArray()["direccion"] . "<br />";
-
-                    return $output;
-                },
-            ],
-                        
-            'fecha',
-            //'almacen0.nombre',
-            /*
+            /* 
+             * Otra forma más sencilla de mostrar el nombre y dirección del almacén en otra línea.
+             */
              [
-                 'label' =>'Almacén 2',
-                 'format' => 'html',
-                 'value' =>function($d){
-                    return $d->almacen . "<br />" . $d->almacen0->nombre . "<br />" . $d->almacen0->direccion;
+                 'label' =>'Almacén',
+                 'attribute' => 'almacen',
+                 'format' => 'raw',
+                 'value' =>function($data){
+                    return $data->almacen . "<br />" .
+                           $data->almacen0->nombre . "<br />" .
+                           $data->almacen0->direccion;
                  }
              ],
-             */
+            'fecha',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

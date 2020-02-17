@@ -93,9 +93,10 @@ class Productos extends \yii\db\ActiveRecord
 
         $this->foto = UploadedFile::getInstance($this, 'foto');
         if ($this->actualizarFoto) {
-            $this->foto->saveAs("imgs/" . $this->id . '-' . $this->foto->baseName . '.' . $this->foto->extension);
-            $this->foto = $this->id . '-' . $this->foto->baseName . '.' . $this->foto->extension;
-
+            $this->foto->saveAs("imgs/" . $this->id . '-' . iconv('UTF-8', 'ISO-8859-1', $this->foto->name));
+            $this->foto = $this->id . '-' .  iconv('UTF-8', 'ISO-8859-1', $this->foto->name);
+            
+            // Hay que guardar el campo foto.
             $this->updateAttributes(["foto"]);
         }
     }
